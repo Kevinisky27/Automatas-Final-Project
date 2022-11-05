@@ -1,0 +1,32 @@
+<h2>Generación de <strong>Palabras</strong></h2>
+
+<div class="textApi">
+  <h2>Resultados: </h2>
+  <span *ngFor="let rep of cadena">{{ this.rep }}</span>
+</div>
+
+<form [formGroup]="formgroup">
+  <div class="inputBox">
+    <input type="text" #varInicial required="required" (keyup)="variableInitial($event)" formControlName="varInicial">
+    <span>Variable inicial</span>
+    <p></p>
+  </div>
+  <div class="inputBox">
+    <input type="text" #reglas required="required" formControlName="regla">
+    <span>Regla: {{ variableInicial }}</span>
+  </div>
+  <div class="inputBox">
+    <input type="number" required="required" min="1" formControlName="numPalabra">
+    <span>No. Palabras</span>
+  </div>
+  <button type="submit" class="btn" (click)="agregar()">Agregar</button>
+</form>
+
+<h3>Reglas agregadas: <strong>{{ variableInicial }}</strong></h3>
+
+<h2 class="regla" *ngFor="let datos of data">- {{ this.datos.string }}</h2>
+
+
+
+<button type="submit" class="btn btn1" (click)="enviar()">Enviar</button>
+<button class="btn btn2" (click)="limpiar()">Limpiar</button>
